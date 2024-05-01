@@ -11,8 +11,10 @@ public class BorderLayoutEx2 extends JFrame {
 	final int width = 600;
 	final int height = 600;
 	JButton[] buttons;
+	JButton[] buttons2;
 	String[] directions = { BorderLayout.EAST, BorderLayout.WEST, BorderLayout.NORTH, BorderLayout.SOUTH,
 			BorderLayout.CENTER };
+	String[] directions2 = { "동", "서", BorderLayout.NORTH, BorderLayout.SOUTH, BorderLayout.CENTER };
 
 	// 생성자
 	public BorderLayoutEx2() {
@@ -27,7 +29,18 @@ public class BorderLayoutEx2 extends JFrame {
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		buttons = new JButton[directions.length];
+		buttons2 = new JButton[directions2.length];
 
+	}
+
+	public String changeName(String directions) {
+		switch (directions) {
+		case BorderLayout.EAST:
+			return "동";
+		default:
+			return "";
+
+		}
 	}
 
 	public void setInitLayout() {
@@ -35,7 +48,8 @@ public class BorderLayoutEx2 extends JFrame {
 		// BorderLayout -- 컴포넌트들을 동서남북 강ㄴ데로 배치 시켜주는 레이아웃이다.
 		setLayout(new BorderLayout());
 		for (int i = 0; i < buttons.length; i++) {
-			add(new JButton(directions[i]), directions[i]);
+			add(new JButton(directions2[i]), directions[i]);
+//			add(buttons[(((int) directions2.i))], directions[i]);
 		}
 	}
 //		add(new JButton("센터"), BorderLayout.CENTER);
