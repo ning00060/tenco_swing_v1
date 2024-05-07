@@ -6,10 +6,11 @@ import javax.swing.JLabel;
 import bubble.BubbleFrame;
 import bubble.interfaces.Moveable;
 import bubble.service.BackgroundEnemyService;
+import bubble.service.BackgroundEnemyService2;
 import bubble.service.BackgroundPlayerService;
 import bubble.state.EnemyWay;
 
-public class Enemy extends JLabel implements Moveable {
+public class Enemy2 extends JLabel implements Moveable {
 
 	BubbleFrame mContext;
 	// 살아 있는 상태 0 ,물방울에 갇힌 상태 1
@@ -54,13 +55,13 @@ public class Enemy extends JLabel implements Moveable {
 	private EnemyWay enemyWay;
 
 	// get,set
-	public Enemy(BubbleFrame mContext) {
+	public Enemy2(BubbleFrame mContext) {
 		this.mContext = mContext;
 		initData();
 		setInitLayout();
 
-		left();
-		new Thread(new BackgroundEnemyService(this)).start();
+		right();
+		new Thread(new BackgroundEnemyService2(this)).start();
 
 	}
 
@@ -167,8 +168,8 @@ public class Enemy extends JLabel implements Moveable {
 		state = 0;
 
 		// 처음 실행 시 초기 값 셋팅
-		x = 720;
-		y = 175;
+		x = 120;
+		y = 75;
 
 		// 적군가 가만이 멈춤 상태
 		left = false;
@@ -176,12 +177,12 @@ public class Enemy extends JLabel implements Moveable {
 		up = false;
 		down = false;
 
-		enemyWay = EnemyWay.LEFT;
+		enemyWay = EnemyWay.RIGHT;
 
 	}
 
 	private void setInitLayout() {
-		setIcon(enemyL);
+		setIcon(enemyR);
 		setSize(50, 50);
 		setLocation(x, y);
 	}

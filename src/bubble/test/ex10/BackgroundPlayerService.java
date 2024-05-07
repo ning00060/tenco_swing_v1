@@ -46,6 +46,10 @@ public class BackgroundPlayerService implements Runnable {
 			if(bottomColorLeft + bottomColorRight  != -2) {
 				// 여기는 멈추야 한다. ( 빨간 바닥 또는 파란색 바닥) 
 				player.setDown(false);
+			}else {
+				if(!player.isUp()&&!player.isDown()) {
+					player.down();
+				}
 			}
 			
 			
